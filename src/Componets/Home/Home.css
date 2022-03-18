@@ -1,0 +1,32 @@
+.home-container{
+    display: flex;
+}
+.header-text{
+    padding: 170px 0;
+    /* margin-left: 40px; */
+    vertical-align: middle;
+    color: black;
+    font-weight: 30px;
+    text-align: center;    
+}
+
+
+
+.img-container{
+    width: 82%;
+}
+
+
+
+  
+.input-field{
+    width: 75%;
+    height: 7vh;
+    border: none;
+    border-radius: 22px;
+}
+
+
+.search-button{
+    padding: 5px 15px;
+}
