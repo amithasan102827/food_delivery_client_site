@@ -1,0 +1,36 @@
+.backgroundImage{
+    /* padding: 18%; */
+    width: 100%;
+    height: 80vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 30px;
+    padding: 6%;
+}
+
+.input_field{
+  padding: 3px;
+   margin: 9px;
+   width: 30%;
+   height: 36px;
+   border: none;
+   outline: none;
+   background-color: rgb(241, 237, 237);
+   border-radius: 3px;
+}
+.submit-button{
+    background-color: rgb(240, 41, 41);
+    padding: 3px;
+   margin: 9px;
+   width: 30%;
+   height: 36px;
+   border: none;
+   outline: none;
+   color: white;
+   border-radius: 3px;
+}
+
+.submit-button:hover{
+    background-color: rgb(253, 9, 90);
+}

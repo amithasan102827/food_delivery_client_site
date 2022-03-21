@@ -11,8 +11,8 @@ const Meal = (props) => {
         <div>
             
                 <div class="col">
-                    <div class="card">
-                        <img src={strMealThumb} class="card-img-top" alt="..."/>
+                    <div style={{width:'90%', margin:'auto'}} class="card">
+                        <img style={{width:'75%',margin:'auto',padding:'10px', marginTop:'10px'}} src={strMealThumb} class="card-img-top" alt="..."/>
                             <div class="card-body">
                             <h5 class="card-title">{strMeal}</h5>
                                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>

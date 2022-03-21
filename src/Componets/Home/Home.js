@@ -13,21 +13,35 @@ import FoodCollection from '../FoodCollection/FoodCollection';
 const Home = () => {
 
     const [meals,setMeals]=useState([])
-
+    const [searchText,setSearchText]=useState('');
+    const [displayMeals,setDisplayMeals]=useState([]);
+    
+    
     useEffect(() => {
-        fetch('https://www.themealdb.com/api/json/v1/1/search.php?f=p')
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`)
             .then(res => res.json())
-            .then(data => setMeals(data.meals));
+            .then(data => {
+                setMeals(data.meals)
+                setDisplayMeals(data.meals)
+            });
     }, []);
 
     const handleSearch = (event) => {
-        console.log(event.target.value);
+        setSearchText(event.target.value);
+    //   const searchText=event.target.value;
+    //     const url=`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
+    //    fetch(url)
+    //    .then(res=> res.json())
+    //    .then(data=>setDisplayMeals(data.meals))
+        const matchMeals=meals.filter(meal=>meal.strMeal.toLowerCase().includes(searchText.toLowerCase()));
+        setDisplayMeals(matchMeals);
     }
 
+        
 
     return (
-        <Box className=''>
-            <div style={{ border: '2px solid red' }} className='row'>
+        <Box className='mt-5'>
+            <div  className='row'>
                 <div className='col-lg-6  '>
                     <div className='header-text mx-2'>
 
@@ -106,11 +120,13 @@ const Home = () => {
 
             </div>
 
-            <div className='container'>
+            {/* Meal section */}
+
+            <div  className='container mt-5'>
                 <h1>All food {meals.length}</h1>
-                <div class="row row-cols-1 row-cols-md-3 g-4 ">
+                <div  class="row row-cols-1 row-cols-md-3 g-4 ">
                   {
-                    meals.slice(0,15).map(meal => <Meal
+                    displayMeals.map(meal => <Meal
                     key={meal.idMeal}
                     meal={meal}
                     
