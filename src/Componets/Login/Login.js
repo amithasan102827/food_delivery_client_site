@@ -29,7 +29,7 @@ const Login = () => {
     
 
     return (
-        <div className='container '>
+        <div style={{marginTop:'85px'}} className='container '>
             <div className='backgroundImage ' style={{ backgroundImage: `url(${background})` }}>
 
               

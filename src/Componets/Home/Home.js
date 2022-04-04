@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import './Home.css';
 import image1 from '../../images/dinner2.png';
@@ -9,141 +9,183 @@ import { Box } from '@mui/material';
 import Meal from '../Meal/Meal';
 import Blog from '../Blog/Blog';
 import FoodCollection from '../FoodCollection/FoodCollection';
+import { userContext } from '../../App';
+
+
+
+
+
+
+
+
+
+
 
 const Home = () => {
 
-    const [meals,setMeals]=useState([])
-    const [searchText,setSearchText]=useState('');
-    const [displayMeals,setDisplayMeals]=useState([]);
+
+
     
-    
+     
+      const [meals, setMeals, displayMeals, setDisplayMeals,handleAddToCart] = useContext(userContext);
+
+//     const [meals,setMeals]=useState([])
+
+//     const [displayMeals,setDisplayMeals]=useState([]);
+
+    const [searchText, setSearchText] = useState('');
+
+
+
     useEffect(() => {
-        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`)
+        // fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`)
+        fetch('/mealFakeData.json')
             .then(res => res.json())
             .then(data => {
-                setMeals(data.meals)
-                setDisplayMeals(data.meals)
+                setMeals(data)
+                setDisplayMeals(data)
             });
     }, []);
 
     const handleSearch = (event) => {
         setSearchText(event.target.value);
-    //   const searchText=event.target.value;
-    //     const url=`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
-    //    fetch(url)
-    //    .then(res=> res.json())
-    //    .then(data=>setDisplayMeals(data.meals))
-        const matchMeals=meals.filter(meal=>meal.strMeal.toLowerCase().includes(searchText.toLowerCase()));
+        //   const searchText=event.target.value;
+        //     const url=`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
+        //    fetch(url)
+        //    .then(res=> res.json())
+        //    .then(data=>setDisplayMeals(data.meals))
+        const matchMeals = meals.filter(meal => meal.category.toLowerCase().includes(searchText.toLowerCase()));
         setDisplayMeals(matchMeals);
     }
 
-        
 
-    return (
-        <Box className='mt-5'>
-            <div  className='row'>
-                <div className='col-lg-6  '>
-                    <div className='header-text mx-2'>
+//     const [cart,setCart]=useState([]);
 
-                        <div className=''>
-                            <h1 style={{ color: 'black', fontSize: '2.8em' }} className=' '>
-                                Get Restant Food by <br />
-                                Ordering Online
-                            </h1>
-                            <p style={{ fontSize: '0.8em' }} className=' '>A restaurant sometimes known as a diner is a place where cooked food is sold to the public, and where people sit down to eat it. It is also a place where people go to enjoy the time and to eat a meal.</p>
-                        </div>
-
-                        <div className='mt-4'>
-
-                            <input
-                                onChange={handleSearch}
-                                className='input-field shadow p-3  ' type="text" placeholder='search your food' />
-
-
-                            <button type="button" class="btn btn-warning search-button rounded-pill shadow">Search</button>
-
-                        </div>
+//    const handleAddToCartButton =(meal)=>{
+//        let newCart= [...cart,meal];
+//        setCart(newCart);
+//        console.log(newCart);
+//    }
 
 
 
+
+return (
+
+
+
+    <Box className='mt-5'>
+        <div className='row'>
+            <div className='col-lg-6  '>
+                <div className='header-text mx-2'>
+
+                    <div className=''>
+                        <h1 style={{ color: 'black', fontSize: '2.8em' }} className=' '>
+                            Get Restant Food by <br />
+                            Ordering Online
+                        </h1>
+                        <p style={{ fontSize: '0.8em' }} className=' '>A restaurant sometimes known as a diner is a place where cooked food is sold to the public, and where people sit down to eat it. It is also a place where people go to enjoy the time and to eat a meal.</p>
+                    </div>
+
+                    <div className='mt-4'>
+
+                        <input style={{ marginTop: '10px' }}
+                            onChange={handleSearch}
+                            className='input-field shadow p-3  ' type="text" placeholder='search your food' />
+
+
+                        {/* <button type="button" class="btn btn-warning search-button rounded-pill shadow">Search</button> */}
 
                     </div>
+
+
+
+
                 </div>
-
-                <div className='col-lg-6  mt-4 p-2 mb-4 '>
-                    <Carousel>
-                        <Carousel.Item interval={1000}>
-
-                            <div className='mx-auto img-container'>
-                                <img
-                                    className=" d-block w-100 img-fluid "
-                                    src={image1}
-                                    alt="First slide"
-                                />
-                            </div>
-
-                        </Carousel.Item>
-                        <Carousel.Item interval={500}>
-                            <div className='mx-auto img-container'>
-                                <img
-                                    className=" d-block w-100 img-fluid "
-                                    src={image2}
-                                    alt="First slide"
-                                />
-                            </div>
-
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className='mx-auto img-container'>
-                                <img
-                                    className=" d-block w-100 img-fluid "
-                                    src={image3}
-                                    alt="First slide"
-                                />
-                            </div>
-
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className='mx-auto img-container'>
-                                <img
-                                    className=" d-block w-100 img-fluid "
-                                    src={image4}
-                                    alt="First slide"
-                                />
-                            </div>
-
-                        </Carousel.Item>
-                    </Carousel>
-                </div>
-
-
-
             </div>
 
-            {/* Meal section */}
+            <div className='col-lg-6  mt-4 p-2 mb-4 '>
+                <Carousel>
+                    <Carousel.Item interval={1000}>
 
-            <div  className='container mt-5'>
-                <h1>All food {meals.length}</h1>
-                <div  class="row row-cols-1 row-cols-md-3 g-4 ">
-                  {
+                        <div className='mx-auto img-container'>
+                            <img
+                                className=" d-block w-100 img-fluid "
+                                src={image1}
+                                alt="First slide"
+                            />
+                        </div>
+
+                    </Carousel.Item>
+                    <Carousel.Item interval={500}>
+                        <div className='mx-auto img-container'>
+                            <img
+                                className=" d-block w-100 img-fluid "
+                                src={image2}
+                                alt="First slide"
+                            />
+                        </div>
+
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <div className='mx-auto img-container'>
+                            <img
+                                className=" d-block w-100 img-fluid "
+                                src={image3}
+                                alt="First slide"
+                            />
+                        </div>
+
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <div className='mx-auto img-container'>
+                            <img
+                                className=" d-block w-100 img-fluid "
+                                src={image4}
+                                alt="First slide"
+                            />
+                        </div>
+
+                    </Carousel.Item>
+                </Carousel>
+            </div>
+
+
+
+        </div>
+
+        {/* Meal section */}
+
+        <div className='container mt-5'>
+            <h1>All food {meals.length}</h1>
+            <div class="row row-cols-1 row-cols-md-3 g-4 ">
+                {
                     displayMeals.map(meal => <Meal
-                    key={meal.idMeal}
-                    meal={meal}
-                    
-                    ></Meal>)  
-                  }
-                  </div>
-
-
+                        key={meal.id}
+                        meal={meal}
+                        // handleAddToCartButton={handleAddToCartButton}
+                        handleAddToCart={handleAddToCart}
+                    ></Meal>)
+                }
             </div>
-            <Blog></Blog>
-            <FoodCollection></FoodCollection>
-        </Box>
+
+
+        </div>
+        <Blog></Blog>
+        <FoodCollection></FoodCollection>
+
+     
+
+    </Box>
 
 
 
 
-    );
+);
+   
+
+    
 };
+
 
 export default Home;

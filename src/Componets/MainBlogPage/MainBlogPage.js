@@ -10,8 +10,8 @@ const MainBlogPage = () => {
         <div class="hero-image">
           <div class="hero-text">
             <h1>Our Regular Blog</h1>
-            <p>And I'm a Photographer</p>
-            <button>Hire me</button>
+            {/* <p>And I'm a Photographer</p> */}
+            {/* <button>Hire me</button> */}
           </div>
         </div>
       </div>

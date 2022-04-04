@@ -29,8 +29,8 @@ const SingIn = () => {
      
     }
     return (
-        <div>
-             <div className='container '>
+        <div >
+             <div style={{marginTop:'85px'}} className='container '>
             <div className='backgroundImage ' style={{ backgroundImage: `url(${background})` }}>
 
               
