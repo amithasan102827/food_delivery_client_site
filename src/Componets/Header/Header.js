@@ -45,14 +45,14 @@ const Header = ({cart}) => {
             </Nav>
             <Nav>
               <Nav.Link > {
-                user.email && <span className="text-light me-4">welcome {user.email}</span>
+                user.email && <span style={{fontSize:"12px"}} className="text-light me-4">welcome {user.email}</span>
               }
 
               </Nav.Link>
 
               <Nav.Link >
                 {
-                  user.email && <button onClick={LogOut} style={{ backgroundColor: 'red', border: 'none', color: 'white', padding: '2px', borderRadius: '3px' }}>LogOut</button>
+                  user.email && <button className="btn btn-primary btn-sm" onClick={LogOut} style={{ backgroundColor: 'red', border: 'none', color: 'white', padding: '2px', borderRadius: '3px' }}>LogOut</button>
                 }
 
               </Nav.Link>

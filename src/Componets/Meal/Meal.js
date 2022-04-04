@@ -23,7 +23,7 @@ const Meal = ({meal,handleAddToCart}) => {
                             <h5 class="card-title">Price: ${price}</h5>
                                 {/* <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> */}
                                 {/* <button  onClick={()=>handleAddToCart(meal)} >Add To Cart</button> */}
-                                <button onClick={()=>handleAddToCart(meal)}  type="button" class="btn btn-outline-warning">Add To Cart</button>
+                                <button onClick={()=>handleAddToCart(meal)}  type="button" class="btn btn-outline-warning btn-sm">Add To Cart</button>
                             </div>
                     </div> 
 

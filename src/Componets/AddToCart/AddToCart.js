@@ -81,7 +81,9 @@ const AddToCart = ({ cart, setCart }) => {
                                             <h5 class="card-title">{item.name}</h5>
                                             <h6>Price:${item.price}</h6>
                                             {/* <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> */}
-                                            <button onClick={() => handleRemove(item.id)}>Remove</button>
+                                            {/* <button onClick={() => handleRemove(item.id)}>Remove</button> */}
+
+                                            <button onClick={() => handleRemove(item.id)} type="button" class="btn btn-danger btn-sm">Remove</button>
 
                                         </div>
                                     </div>
@@ -103,7 +105,10 @@ const AddToCart = ({ cart, setCart }) => {
                             <li class="list-group-item">A third item</li>
                         </ul>
                         <div class="card-footer">
-                            <button onClick={() => handleOrder(cart, user.email)}>Place Order</button>
+
+                            {/* <button onClick={() => handleOrder(cart, user.email)}>Place Order</button> */}
+
+                            <button onClick={() => handleOrder(cart, user.email)} type="button" class="btn btn-primary btn-sm">place order</button>
                         </div>
                     </div>
                 </div>
