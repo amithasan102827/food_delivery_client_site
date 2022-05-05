@@ -11,6 +11,7 @@ import Meal from '../Meal/Meal';
 import Blog from '../Blog/Blog';
 
 import { userContext } from '../../App';
+import Footer from '../Footer/Footer';
 
 
 
@@ -72,9 +73,9 @@ const Home = () => {
 
     return (
 
+<>
 
-
-        <div className='mt-5'>
+        <div className='mt-5 container'>
             <div className='row'>
                 <div className='col-lg-6  '>
                     <div className='header-text mx-2'>
@@ -156,11 +157,11 @@ const Home = () => {
 
             {/* Meal section */}
 
-            <div className='container mt-5'>
+            <div className='container '>
                 <h1>All food {meals.length}</h1>
                 <div class="row row-cols-1 row-cols-md-3 g-4 ">
                     {
-                        displayMeals.map(meal => <Meal
+                        displayMeals.slice(0,21).map(meal => <Meal
                             key={meal.id}
                             meal={meal}
                             // handleAddToCartButton={handleAddToCartButton}
@@ -186,9 +187,9 @@ const Home = () => {
 
 
         </div>
+<Footer></Footer>
 
-
-
+</>
 
     );
 

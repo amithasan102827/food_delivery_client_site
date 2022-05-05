@@ -48,7 +48,7 @@ const Blog = () => {
                     blogData.slice(0,3).map(data =>
 
                         <div class="col">
-                            <div class="card h-100">
+                            <div class="card h-100 w-75 mx-auto">
                                 <img src={data.image} class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>

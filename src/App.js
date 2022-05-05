@@ -6,6 +6,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  Navigate
 } from "react-router-dom";
 import Header from './Componets/Header/Header';
 import MainBlogPage from './Componets/MainBlogPage/MainBlogPage';
@@ -15,6 +16,11 @@ import AuthProvider from './Componets/Context/AuthProvider';
 
 import AddToCart from './Componets/AddToCart/AddToCart';
 import { createContext, useEffect, useState } from 'react';
+import MakeAdmin from './Componets/MakeAdmin/MakeAdmin';
+import DashBoard from './Componets/DashBoard/DashBoard';
+import Footer from './Componets/Footer/Footer';
+import PrivateRoute from './Componets/PrivateRoute/PrivateRoute';
+import Payment from './Componets/Payment/Payment';
 
 
 
@@ -24,27 +30,27 @@ export const userContext = createContext();
 
 function App() {
 
-  
-  const [meals,setMeals]=useState([])
 
-  const [displayMeals,setDisplayMeals]=useState([]);
+  const [meals, setMeals] = useState([])
 
-  const [cart,setCart]=useState([]);
+  const [displayMeals, setDisplayMeals] = useState([]);
 
-
+  const [cart, setCart] = useState([]);
 
 
-  const handleAddToCart =(meal) => {
-    let newCart=[...cart, meal];
+
+
+  const handleAddToCart = (meal) => {
+    let newCart = [...cart, meal];
     console.log(newCart);
     setCart(newCart);
 
 
-  console.log(newCart);
-  
+    console.log(newCart);
 
-};
-  
+
+  };
+
 
 
 
@@ -55,29 +61,29 @@ function App() {
 
 
     <div className="App">
-   
-     
-        <AuthProvider>
+
+
+      <AuthProvider>
         <userContext.Provider
-      value={[
-      meals,
-      setMeals,
-      displayMeals,
-      setDisplayMeals,
-      // setCart,
-      // cart,
-      handleAddToCart
-    
-      
-     
-      ]}
-    >
+          value={[
+            meals,
+            setMeals,
+            displayMeals,
+            setDisplayMeals,
+            // setCart,
+            // cart,
+            handleAddToCart
+
+
+
+          ]}
+        >
 
           <BrowserRouter>
-         
+
             <Header cart={cart}></Header>
             <Routes  >
-          
+
               <Route path="/" element={<Home />}>
               </Route>
               <Route path="home" element={<Home cart={cart} setCart={setCart}  ></Home>} >
@@ -89,17 +95,32 @@ function App() {
               <Route path="SingIn" element={<SingIn></SingIn>}>
               </Route>
 
-              <Route path="AddToCart" element={<AddToCart cart={cart} setCart={setCart}  ></AddToCart>}>
+              <Route
+                path="AddToCart" element={
+                  <PrivateRoute>
+                    <AddToCart cart={cart} setCart={setCart}   ></AddToCart>
+                  </PrivateRoute>
+                }>
+
               </Route>
-            
+
+              <Route path="makeAdmin" element={<MakeAdmin></MakeAdmin>}>
+              </Route>
+              <Route path="payment" element={<Payment></Payment>}>
+              </Route>
+
+              <Route path="/DashBoard/*" element={<DashBoard></DashBoard>}>
+              </Route>
+
             </Routes>
-           
+
           </BrowserRouter>
 
-          </userContext.Provider>
-          
-        </AuthProvider>
-        
+
+        </userContext.Provider>
+
+      </AuthProvider>
+
 
     </div>
   );
