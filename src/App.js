@@ -36,6 +36,7 @@ function App() {
   const [displayMeals, setDisplayMeals] = useState([]);
 
   const [cart, setCart] = useState([]);
+  const [total,setTotal]=useState(null);
 
 
 
@@ -98,7 +99,7 @@ function App() {
               <Route
                 path="AddToCart" element={
                   <PrivateRoute>
-                    <AddToCart cart={cart} setCart={setCart}   ></AddToCart>
+                    <AddToCart cart={cart} setCart={setCart} total={total} setTotal={setTotal}   ></AddToCart>
                   </PrivateRoute>
                 }>
 
@@ -106,10 +107,14 @@ function App() {
 
               <Route path="makeAdmin" element={<MakeAdmin></MakeAdmin>}>
               </Route>
-              <Route path="payment" element={<Payment></Payment>}>
-              </Route>
+              
 
               <Route path="/DashBoard/*" element={<DashBoard></DashBoard>}>
+              </Route>
+              
+              {/* <Route path="/payment/:appointmentId" element={<Payment></Payment>}>
+              </Route> */}
+              <Route path="/AddToCart/payment" element={<Payment total={total}></Payment>}>
               </Route>
 
             </Routes>

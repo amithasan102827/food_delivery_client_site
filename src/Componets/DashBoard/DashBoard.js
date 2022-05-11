@@ -29,6 +29,9 @@ import {
 
 import { Button } from '@mui/material';
 import AddNewProduct from '../AddNewProduct/AddNewProduct';
+import MyOrders from '../MyOrders/MyOrders';
+import Payment from '../Payment/Payment';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
 const drawerWidth = 240;
 
 function DashBoard(props) {
@@ -54,6 +57,10 @@ function DashBoard(props) {
 
       <List>
         <Link style={{ textDecoration: 'none', color: '' }} to="AddNewProduct"> <Button color="inherit">AddProduct</Button> </Link> <br />
+
+        <Link style={{ textDecoration: 'none', color: '' }} to="MyOrders"> <Button color="inherit">MyOrders</Button> </Link> <br />
+
+        <Link style={{ textDecoration: 'none', color: '' }} to="MakeAdmin"> <Button color="inherit">MakeAdmin</Button> </Link> <br />
 
    
      
@@ -86,7 +93,7 @@ function DashBoard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+            DashBoard
           </Typography>
         </Toolbar>
       </AppBar>
@@ -135,7 +142,11 @@ function DashBoard(props) {
       
      
       <Routes>
-        <Route path="AddNewProduct" element={<AddNewProduct></AddNewProduct>} />
+        <Route path="AddNewProduct" element={<AddNewProduct></AddNewProduct>}/>
+        <Route path="MyOrders" element={<MyOrders></MyOrders>} />
+        <Route path="MakeAdmin" element={<MakeAdmin></MakeAdmin>}/>
+
+        {/* <Route path="/payment/:appointmentId" element={<Payment></Payment>} /> */}
         
       </Routes>
 

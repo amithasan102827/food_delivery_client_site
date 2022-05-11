@@ -21,7 +21,7 @@ const Footer = () => {
             <div className="row mx-4 mt-5 ">
                 <div className="col-md-4">
                     <div>
-                        <h4>Classic Motors Ltd. </h4>
+                        <h4 style={{fontWeight:'bold'}}>RED-<span style={{color:'green'}}>ONION</span> </h4>
                         <span>Getting a car gives you the freedom to commute anywhere you need to</span>
                     </div>
                     <div>

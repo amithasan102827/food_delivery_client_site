@@ -29,7 +29,7 @@ const Header = ({cart}) => {
               <Nav.Link ><Link to='/Login' style={{ textDecoration: 'none' }}>SingUp</Link></Nav.Link>
               <Nav.Link ><Link to='/SingIn' style={{ textDecoration: 'none' }}>SingIn</Link></Nav.Link>
 
-              <Nav.Link ><Link to='/makeAdmin' style={{ textDecoration: 'none' }}>MakeAdmin</Link></Nav.Link>
+              {/* <Nav.Link ><Link to='/makeAdmin' style={{ textDecoration: 'none' }}>MakeAdmin</Link></Nav.Link> */}
 
               <Nav.Link ><Link to='/DashBoard' style={{ textDecoration: 'none' }}>DashBoard</Link></Nav.Link>
 

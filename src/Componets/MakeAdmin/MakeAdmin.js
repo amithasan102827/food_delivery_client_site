@@ -40,7 +40,7 @@ const handleSubmit=e=>{
 
 
     return (
-        <div style={{marginTop:'150px'}}>
+        <div style={{marginTop:'50px'}}>
         <Container  >
         <h2>Make Admin</h2>
         <Box>

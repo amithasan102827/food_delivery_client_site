@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { userContext } from "../../App";
 import './AddToCart.css';
 import useAuth from '../Hooks/useAuth';
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import DatePicker from 'react-datepicker';
 
 
 
@@ -11,12 +12,12 @@ import { Link } from "react-router-dom";
 
 
 
+const AddToCart = ({ cart, setCart, setTotal }) => {
 
-const AddToCart = ({ cart, setCart }) => {
-
+    const [date, setDate] = useState();
     const [data, setData] = useState([]);
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => {
+    const { control, register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = (data) => {
         setData(data);
         console.log(data);
     }
@@ -26,9 +27,10 @@ const AddToCart = ({ cart, setCart }) => {
 
     const { user } = useAuth();
 
-    const Total = cart.reduce((sum, food) => sum + parseFloat(food.price), 0);
+    const total = cart.reduce((sum, food) => sum + parseFloat(food.price), 0);
     console.log(cart);
 
+setTotal(total);
 
     const handleRemove = (id) => {
         const arr = cart.filter((item) => item.id !== id);
@@ -40,14 +42,15 @@ const AddToCart = ({ cart, setCart }) => {
 
 
 
-    const handleOrder = (cart, email, data) => {
+    const handleOrder = (cart, email, data,total) => {
         const item = [{
             email: email,
             cart: cart,
-            data: data
+            data: data,
+            total:total
         }]
         if (cart.length !== 0) {
-            fetch("http://localhost:5000/haiku", {
+            fetch("http://localhost:5000/orders", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
 
@@ -104,8 +107,8 @@ const AddToCart = ({ cart, setCart }) => {
 
 
         <div className="container" style={{ marginTop: '80px' }} >
-            <h3 style={{ fontWeight: "bold" }}>Total Item:{cart.length}</h3>
-            <h4>Total Cost:${Total}</h4>
+            {/* <h3 style={{ fontWeight: "bold" }}>Total Item:{cart.length}</h3> */}
+            <h4>Total Cost:${total}</h4>
             <div className="row">
                 <div className="col-md-8">
                     {
@@ -141,7 +144,7 @@ const AddToCart = ({ cart, setCart }) => {
                     <div class="card shadow-sm p-1 mb-2 bg-body rounded" style={{ width: '18rem' }}>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Add to cart:{cart.length}</li>
-                            <li class="list-group-item">Total Cost:${Total}</li>
+                            <li class="list-group-item">Total Cost:${total}</li>
                             {/* <li class="list-group-item">A third item</li> */}
                         </ul>
                         <div class="card-footer">
@@ -152,31 +155,30 @@ const AddToCart = ({ cart, setCart }) => {
                         </div>
                     </div>
 
+
+
+
+                    {/* <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} type="text" placeholder="Name" {...register("name", { required: true, maxLength: 80 })} /> */}
+
+
                     <form onSubmit={handleSubmit(onSubmit)}>
-                  
+                        {/* register your input into the hook by invoking the "register" function */}
+                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }}  placeholder="Name" {...register("name")} />
+                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} placeholder="Mobile" {...register("mobile")} />
+                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} placeholder="Address" {...register("address")} /> <br />
 
-                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} type="text" placeholder="Name" {...register("First name", { required: true, maxLength: 80 })} />
-                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "" }} type="text" placeholder="Last name" {...register("Last name", { required: true, maxLength: 100 })} />
-                        {/* <input style={{ marginRight: "60px", width: "81%", marginBottom: "10px", outline: "" }} type="text" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} /> */}
-                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "" }} type="tel" placeholder="Mobile number" {...register("Mobile number", { required: true, minLength: 6, maxLength: 12 })} />
+                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} type="date" {...register("date")} /> <br />
+                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} type="time" {...register("time")} /> <br />
+
+                     
                         
-                        
-                        <textarea style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none",height:"50px" }} type="text" placeholder="Address" {...register("Address", { required: true, maxLength: 80 })} /> <br />
-                        {/* <select {...register("Title", { required: true })}>
-                            <option value="Mr">Mr</option>
-                            <option value="Mrs">Mrs</option>
-                            <option value="Miss">Miss</option>
-                            <option value="Dr">Dr</option>
-                        </select> */}
 
-                        {/* <input {...register("Developer", { required: true })} type="radio" value="Yes" />
-                        <input {...register("Developer", { required: true })} type="radio" value="No" /> */}
-
-                        <input style={{marginLeft:"160px",backgroundColor:"green",color:'white',border:'none'}} type="submit" /> <br />
-
-                        <Link to="/payment">
-                        <button style={{marginTop:"20px",width:"80%",marginRight:"55px"}} onClick={() => handleOrder(cart, user.email,data)} type="button" class="btn btn-primary btn-sm">place order</button></Link>
+                        <input style={{marginLeft:"157px",backgroundColor:"gainsboro"}} type="submit" />
                     </form>
+
+                    <Link to="payment">
+                    <button style={{ marginTop: "10px", width: "80%", marginRight: "60px" }} onClick={() => handleOrder(cart, user.email, data,total)} type="button" class="btn btn-primary btn-sm">place order</button>
+                    </Link>
                 </div>
 
             </div>
