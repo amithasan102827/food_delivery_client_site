@@ -32,6 +32,9 @@ import AddNewProduct from '../AddNewProduct/AddNewProduct';
 import MyOrders from '../MyOrders/MyOrders';
 import Payment from '../Payment/Payment';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AddBlog from '../AddBlog/AddBlog';
+import ManageAllProduct from '../ManageAllProduct/ManageAllProduct';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 const drawerWidth = 240;
 
 function DashBoard(props) {
@@ -61,6 +64,12 @@ function DashBoard(props) {
         <Link style={{ textDecoration: 'none', color: '' }} to="MyOrders"> <Button color="inherit">MyOrders</Button> </Link> <br />
 
         <Link style={{ textDecoration: 'none', color: '' }} to="MakeAdmin"> <Button color="inherit">MakeAdmin</Button> </Link> <br />
+
+        <Link style={{ textDecoration: 'none', color: '' }} to="addBlog"> <Button color="inherit">AddBlog</Button> </Link> <br />
+
+        <Link style={{ textDecoration: 'none', color: '' }} to="manageAllProduct"> <Button color="inherit">AllFood</Button> </Link> <br />
+
+        <Link style={{ textDecoration: 'none', color: '' }} to="manageAllOrders"> <Button color="inherit">AllOrders</Button> </Link> <br />
 
    
      
@@ -145,6 +154,9 @@ function DashBoard(props) {
         <Route path="AddNewProduct" element={<AddNewProduct></AddNewProduct>}/>
         <Route path="MyOrders" element={<MyOrders></MyOrders>} />
         <Route path="MakeAdmin" element={<MakeAdmin></MakeAdmin>}/>
+        <Route path="addBlog" element={<AddBlog></AddBlog>}/>
+        <Route path="manageAllProduct" element={<ManageAllProduct></ManageAllProduct>}/>
+        <Route path="manageAllOrders" element={<ManageAllOrders></ManageAllOrders>}/>
 
         {/* <Route path="/payment/:appointmentId" element={<Payment></Payment>} /> */}
         

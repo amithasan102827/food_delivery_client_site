@@ -59,6 +59,8 @@ useEffect(() => {
     })
 }, [])
 
+
+
     return (
         <div className='container mt-5'>
             <h1>Our Regular Blogs</h1>
@@ -69,7 +71,7 @@ useEffect(() => {
 
                         <div class="col">
                             <div class="card h-100 w-75 mx-auto">
-                                <img src={data.image} class="card-img-top" alt="..." />
+                                <img  src={`data:image/png;base64,${data?.image}`} class="card-img-top" alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">{data.name}</h5>
                                     <p class="card-text">{data.description.slice(0,100)}</p>

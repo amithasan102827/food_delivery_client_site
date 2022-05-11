@@ -21,6 +21,10 @@ import DashBoard from './Componets/DashBoard/DashBoard';
 import Footer from './Componets/Footer/Footer';
 import PrivateRoute from './Componets/PrivateRoute/PrivateRoute';
 import Payment from './Componets/Payment/Payment';
+import AddBlog from './Componets/AddBlog/AddBlog';
+import AdminPrivateRoute from './Componets/AdminPrivateRoute/AdminPrivateRoute';
+import ManageAllProduct from './Componets/ManageAllProduct/ManageAllProduct';
+import ManageAllOrders from './Componets/ManageAllOrders/ManageAllOrders';
 
 
 
@@ -36,7 +40,7 @@ function App() {
   const [displayMeals, setDisplayMeals] = useState([]);
 
   const [cart, setCart] = useState([]);
-  const [total,setTotal]=useState(null);
+  const [total, setTotal] = useState(null);
 
 
 
@@ -107,11 +111,27 @@ function App() {
 
               <Route path="makeAdmin" element={<MakeAdmin></MakeAdmin>}>
               </Route>
-              
 
-              <Route path="/DashBoard/*" element={<DashBoard></DashBoard>}>
+              <Route path="addBlog" element={<AddBlog></AddBlog>}>
               </Route>
-              
+
+              <Route path="manageAllProduct" element={<ManageAllProduct></ManageAllProduct>}>
+              </Route>
+
+              <Route path="manageAllOrders" element={<ManageAllOrders></ManageAllOrders>}>
+              </Route>
+
+
+              {/* <Route path="/DashBoard/*" element={<DashBoard></DashBoard>}>
+              </Route> */}
+
+              <Route path="/DashBoard/*" element={
+                <AdminPrivateRoute>
+                  <DashBoard></DashBoard>
+                </AdminPrivateRoute>
+              }>
+              </Route>
+
               {/* <Route path="/payment/:appointmentId" element={<Payment></Payment>}>
               </Route> */}
               <Route path="/AddToCart/payment" element={<Payment total={total}></Payment>}>

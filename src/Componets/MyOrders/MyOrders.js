@@ -57,6 +57,7 @@ const MyOrders = () => {
                             <th>Phone</th>
 
                             <th>Address</th>
+                            <th>Action</th>
                            
                             {/* <th>Action</th> */}
                             
@@ -74,6 +75,10 @@ const MyOrders = () => {
                                 <td>{myOrder.total}</td>
                                 <td>{myOrder.data.mobile}</td>
                                 <td>{myOrder.data.address}</td>
+                                <td align="right">{myOrder.order ?
+                                    'Delivered' :<p>Pending</p>
+                                    
+                                }</td>
 
                                 {/* <td>{myOrder?.data.Address
                                 }</td>
