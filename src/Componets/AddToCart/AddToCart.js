@@ -16,10 +16,12 @@ const AddToCart = ({ cart, setCart, setTotal }) => {
 
     const [date, setDate] = useState();
     const [data, setData] = useState([]);
-    const { control, register, handleSubmit, formState: { errors } } = useForm();
+    const { control, register,reset, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         setData(data);
+
         console.log(data);
+        reset();
     }
     console.log(errors);
 
@@ -50,7 +52,7 @@ setTotal(total);
             total:total
         }]
         if (cart.length !== 0) {
-            fetch("http://localhost:5000/orders", {
+            fetch("https://whispering-citadel-01362.herokuapp.com/orders", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
 
@@ -173,7 +175,7 @@ setTotal(total);
                      
                         
 
-                        <input style={{marginLeft:"157px",backgroundColor:"gainsboro"}} type="submit" />
+                        <input style={{marginLeft:"157px",backgroundColor:"green",border:'none',color:'white'}} type="submit" />
                     </form>
 
                     <Link to="payment">

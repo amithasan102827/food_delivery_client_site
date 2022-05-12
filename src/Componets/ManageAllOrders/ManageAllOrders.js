@@ -18,14 +18,14 @@ const ManageAllOrders = () => {
 
     const [allOrders, setAllMyOrders] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/orders')
+        fetch('https://whispering-citadel-01362.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setAllMyOrders(data))
     }, [])
 
 // DELETE ORDERS
     const handelDelete=(id)=>{
-        const url=`http://localhost:5000/orders/${id}`;
+        const url=`https://whispering-citadel-01362.herokuapp.com/orders/${id}`;
         fetch(url,{
             method:"DELETE"
         })
@@ -47,7 +47,7 @@ const ManageAllOrders = () => {
         const order = {
           order:'Delivered'
         }
-        const url = `http://localhost:5000/orders/${id}`;
+        const url = `https://whispering-citadel-01362.herokuapp.com/orders/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -72,10 +72,11 @@ const ManageAllOrders = () => {
                             <th>Name</th>
                             <th>Price</th>
                             <th>Phone</th>
+                            <th>Date</th>
 
                             <th>Address</th>
                             
-                            <th>Action</th>
+                            {/* <th>Action</th> */}
                             <th>Title</th>
                           
 
@@ -91,9 +92,10 @@ const ManageAllOrders = () => {
                                 <td>{allOrder.cart.map(c=><li>{c.name}</li>)}</td>
                                 <td>${allOrder.total}</td>
                                 <td>{allOrder?.data.mobile}</td>
+                                <td>{allOrder?.data.date}</td>
                                 <td>{allOrder?.data.address}</td>
                                
-                                <td><Button onClick={() => handelDelete(allOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Delete</Button></td>
+                                {/* <td><Button onClick={() => handelDelete(allOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Delete</Button></td> */}
 
                                 <td><Button onClick={() => handelUpdate(allOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Deliver</Button></td>
 

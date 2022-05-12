@@ -25,7 +25,7 @@ const AddNewProduct = () => {
         formData.append('rating', rating);
         formData.append('image', image);
 
-        fetch('http://localhost:5000/meals', {
+        fetch('https://whispering-citadel-01362.herokuapp.com/meals', {
             method: 'POST',
             body: formData
         })

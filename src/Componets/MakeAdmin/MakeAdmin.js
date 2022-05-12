@@ -14,7 +14,7 @@ const handleSubmit=e=>{
 
     const user={email};
     e.preventDefault();
-    fetch('http://localhost:5000/users/admin',{
+    fetch('https://whispering-citadel-01362.herokuapp.com/users/admin',{
         method:'PUT',
         headers:{
             

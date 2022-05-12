@@ -52,7 +52,7 @@ const Blog = () => {
 const [blog,setBlog]=useState([]);
 
 useEffect(() => {
-    fetch('http://localhost:5000/blogs')
+    fetch('https://whispering-citadel-01362.herokuapp.com/blogs')
         .then(res => res.json())
     .then(data => {setBlog(data)
     console.log(data);

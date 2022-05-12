@@ -25,6 +25,8 @@ import AddBlog from './Componets/AddBlog/AddBlog';
 import AdminPrivateRoute from './Componets/AdminPrivateRoute/AdminPrivateRoute';
 import ManageAllProduct from './Componets/ManageAllProduct/ManageAllProduct';
 import ManageAllOrders from './Componets/ManageAllOrders/ManageAllOrders';
+import AddReview from './Componets/AddReview/AddReview';
+import Reviews from './Componets/Reviews/Reviews';
 
 
 
@@ -100,6 +102,10 @@ function App() {
               <Route path="SingIn" element={<SingIn></SingIn>}>
               </Route>
 
+              <Route path="reviews" element={<Reviews></Reviews>}>
+              </Route>
+              
+
               <Route
                 path="AddToCart" element={
                   <PrivateRoute>
@@ -119,6 +125,8 @@ function App() {
               </Route>
 
               <Route path="manageAllOrders" element={<ManageAllOrders></ManageAllOrders>}>
+              </Route>
+              <Route path="addReview" element={<AddReview></AddReview>}>
               </Route>
 
 

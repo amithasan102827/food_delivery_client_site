@@ -20,7 +20,7 @@ const AddBlog = () => {
         formData.append('description', description);
         formData.append('image', image);
 
-        fetch('http://localhost:5000/blogs', {
+        fetch('https://whispering-citadel-01362.herokuapp.com/blogs', {
             method: 'POST',
             body: formData
         })

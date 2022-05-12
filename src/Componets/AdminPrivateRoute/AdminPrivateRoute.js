@@ -6,7 +6,7 @@ const AdminPrivateRoute = ({children}) => {
 
     const {user,admin}=useAuth();
     return (
-        user.email && admin ? (
+        user.email ? (
             children
           ) : (
             <Navigate

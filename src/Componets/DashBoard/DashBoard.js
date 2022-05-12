@@ -24,7 +24,8 @@ import {
   Route,
   Navigate,
   Link,
-  Outlet
+  Outlet,
+  NavLink
 } from "react-router-dom";
 
 import { Button } from '@mui/material';
@@ -35,11 +36,14 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddBlog from '../AddBlog/AddBlog';
 import ManageAllProduct from '../ManageAllProduct/ManageAllProduct';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import useAuth from '../Hooks/useAuth';
+import AddReview from '../AddReview/AddReview';
 const drawerWidth = 240;
 
 function DashBoard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const { user, admin, LogOut } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -49,19 +53,32 @@ function DashBoard(props) {
     <div>
       <Toolbar />
       <Divider />
-      <List>
-        <Link style={{ textDecoration: 'none', color: '' }} to="/"> <Button color="inherit">Home</Button> </Link> <br />
-      </List>
+      {!admin && <List>
 
+
+        <Link style={{ textDecoration: 'none', color: '' }} to="/"> <Button color="inherit">Home</Button> </Link> <br />
+
+        <Link style={{ textDecoration: 'none', color: '' }} to="MyOrders"> <Button color="inherit">MyOrders</Button> </Link> <br />
+
+        <Link style={{ textDecoration: 'none', color: '' }} to="addReview"> <Button color="inherit">AddReview</Button> </Link> <br />
+
+        {
+          user.email && <NavLink style={{ textDecoration: 'none', color: 'red' }} to=""> <Button style={{ fontSize: '1.1vw' }} onClick={LogOut} color="inherit">Logout</Button> </NavLink>
+        }
+      </List>
+      }
 
       <Divider />
 
 
+  
+      {user.email && admin && <List>
 
-      <List>
+        <Link style={{ textDecoration: 'none', color: '' }} to="/"> <Button color="inherit">Home</Button> </Link> <br />
+
         <Link style={{ textDecoration: 'none', color: '' }} to="AddNewProduct"> <Button color="inherit">AddProduct</Button> </Link> <br />
 
-        <Link style={{ textDecoration: 'none', color: '' }} to="MyOrders"> <Button color="inherit">MyOrders</Button> </Link> <br />
+
 
         <Link style={{ textDecoration: 'none', color: '' }} to="MakeAdmin"> <Button color="inherit">MakeAdmin</Button> </Link> <br />
 
@@ -71,11 +88,13 @@ function DashBoard(props) {
 
         <Link style={{ textDecoration: 'none', color: '' }} to="manageAllOrders"> <Button color="inherit">AllOrders</Button> </Link> <br />
 
-   
-     
-
+        {
+          user.email && <NavLink style={{ textDecoration: 'none', color: 'red' }} to=""> <Button style={{ fontSize: '1.1vw' }} onClick={LogOut} color="inherit">Logout</Button> </NavLink>
+        }
       </List>
-      
+      }
+
+      <Divider />
     </div>
   );
 
@@ -143,26 +162,27 @@ function DashBoard(props) {
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <Toolbar />
-      
-       
-      {/* <h1>main page</h1>
+
+
+        {/* <h1>main page</h1>
       <Link to="AddNewProduct">child 1</Link> */}
-       
-      
-     
-      <Routes>
-        <Route path="AddNewProduct" element={<AddNewProduct></AddNewProduct>}/>
-        <Route path="MyOrders" element={<MyOrders></MyOrders>} />
-        <Route path="MakeAdmin" element={<MakeAdmin></MakeAdmin>}/>
-        <Route path="addBlog" element={<AddBlog></AddBlog>}/>
-        <Route path="manageAllProduct" element={<ManageAllProduct></ManageAllProduct>}/>
-        <Route path="manageAllOrders" element={<ManageAllOrders></ManageAllOrders>}/>
 
-        {/* <Route path="/payment/:appointmentId" element={<Payment></Payment>} /> */}
-        
-      </Routes>
 
-      
+
+        <Routes>
+          <Route path="AddNewProduct" element={<AddNewProduct></AddNewProduct>} />
+          <Route path="MyOrders" element={<MyOrders></MyOrders>} />
+          <Route path="MakeAdmin" element={<MakeAdmin></MakeAdmin>} />
+          <Route path="addBlog" element={<AddBlog></AddBlog>} />
+          <Route path="addReview" element={<AddReview></AddReview>} />
+          <Route path="manageAllProduct" element={<ManageAllProduct></ManageAllProduct>} />
+          <Route path="manageAllOrders" element={<ManageAllOrders></ManageAllOrders>} />
+
+          {/* <Route path="/payment/:appointmentId" element={<Payment></Payment>} /> */}
+
+        </Routes>
+
+
       </Box>
       <Outlet />
     </Box>

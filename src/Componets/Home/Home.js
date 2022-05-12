@@ -40,7 +40,7 @@ const Home = () => {
 
     useEffect(() => {
         // fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`)
-        fetch('http://localhost:5000/meals')
+        fetch('https://whispering-citadel-01362.herokuapp.com/meals')
             .then(res => res.json())
             .then(data => {
                 setMeals(data)
