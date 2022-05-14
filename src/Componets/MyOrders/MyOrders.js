@@ -57,7 +57,7 @@ const MyOrders = () => {
                             <th>Phone</th>
 
                             <th>Address</th>
-                            <th>Action</th>
+                            <th>Status</th>
                            
                             {/* <th>Action</th> */}
                             

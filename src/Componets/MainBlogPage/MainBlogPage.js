@@ -27,7 +27,7 @@ const MainBlogPage = () => {
         </div>
       </div>
       {/* <Blog></Blog> */}
-      <div  className='container mt-5 mb-5'>
+      <div  className=' mt-5 mb-5'>
       <div class="row row-cols-1 row-cols-md-3 g-4">
                 {
                     blog.map(data =>
