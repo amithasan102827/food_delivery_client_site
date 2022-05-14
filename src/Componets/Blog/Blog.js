@@ -62,7 +62,7 @@ useEffect(() => {
 
 
     return (
-        <div className='container mt-5'>
+        <div className=' mt-5 '>
             <h1>Our Regular Blogs</h1>
            
             <div class="row row-cols-1 row-cols-md-3 g-4">

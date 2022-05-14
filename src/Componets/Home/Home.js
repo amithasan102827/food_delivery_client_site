@@ -75,7 +75,7 @@ const Home = () => {
 
 <>
 
-        <div className='mt-5 container'>
+        <div className='mt-5 '>
             <div className='row'>
                 <div className='col-lg-6  '>
                     <div className='header-text mx-2'>
@@ -105,7 +105,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className='col-lg-6  mt-4 p-2 mb-4 '>
+                <div className='col-lg-6  mt-4  mb-4 '>
                     <Carousel>
                         <Carousel.Item interval={1000}>
 
@@ -157,8 +157,8 @@ const Home = () => {
 
             {/* Meal section */}
 
-            <div className='container '>
-                <h1>All food {meals.length}</h1>
+            <div className=' '>
+                {/* <h1>All food {meals.length}</h1> */}
                 <div class="row row-cols-1 row-cols-md-3 g-4 ">
                     {
                         displayMeals.slice(0,21).map(meal => <Meal

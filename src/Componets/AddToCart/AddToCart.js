@@ -111,11 +111,11 @@ const AddToCart = ({ cart, setCart, setTotal }) => {
     return (
 
 
-        <div className="container" style={{ marginTop: '80px' }} >
+        <div className="" style={{ marginTop: '90px' }} >
             {/* <h3 style={{ fontWeight: "bold" }}>Total Item:{cart.length}</h3> */}
             <h4>Total Cost:${total}</h4>
             <div className="row">
-                <div className="col-md-8">
+                <div className="col-md-8 mt-5">
                     {
                         cart.map(item => <div>
 
@@ -145,7 +145,7 @@ const AddToCart = ({ cart, setCart, setTotal }) => {
                     }
                 </div>
 
-                <div className="col-md-4"  >
+                <div className="col-md-4 mt-5"  >
                     <div class="card shadow-sm p-1 mb-2 bg-body rounded" style={{ width: '18rem' }}>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Add to cart:{cart.length}</li>
@@ -168,21 +168,21 @@ const AddToCart = ({ cart, setCart, setTotal }) => {
 
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* register your input into the hook by invoking the "register" function */}
-                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} placeholder="Name" {...register("name")} />
-                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} placeholder="Mobile" {...register("mobile")} />
-                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} placeholder="Address" {...register("address")} /> <br />
+                        <input style={{ marginRight: "100px", width: "72%", marginBottom: "15px", outline: "none",marginTop:'10px' }} placeholder="Name" {...register("name")} />
+                        <input style={{ marginRight: "100px", width: "72%", marginBottom: "15px", outline: "none" }} placeholder="Mobile" {...register("mobile")} />
+                        <input style={{ marginRight: "100px", width: "72%", marginBottom: "15px", outline: "none" }} placeholder="Address" {...register("address")} /> <br />
 
-                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} type="date" {...register("date")} /> <br />
-                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} type="time" {...register("time")} /> <br />
-
-
+                        <input style={{ marginRight: "100px", width: "72%", marginBottom: "15px", outline: "none" }} type="date" {...register("date")} /> <br />
+                        <input style={{ marginRight: "100px", width: "72%", marginBottom: "10px", outline: "none" }} type="time" {...register("time")} /> <br />
 
 
-                        <input style={{ marginLeft: "157px", backgroundColor: "green", border: 'none', color: 'white' }} type="submit" />
+
+
+                        <input style={{ marginLeft: "130px", backgroundColor: "green", border: 'none', color: 'white' }} type="submit" />
                     </form>
 
                     <Link to="payment">
-                        <button style={{ marginTop: "10px", width: "80%", marginRight: "60px" }} onClick={() => handleOrder(cart, user.email, data, total)} type="button" class="btn btn-primary btn-sm">place order</button>
+                        <button style={{ marginTop: "10px", width: "72%", marginRight: "90px" }} onClick={() => handleOrder(cart, user.email, data, total)} type="button" class="btn btn-primary btn-sm">place order</button>
                     </Link>
                 </div>
 
