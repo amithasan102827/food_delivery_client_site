@@ -47,12 +47,12 @@ const Footer = () => {
                           <p>
                                <i class="fas fa-map-marked-alt contact-icon"></i>
                              A108 Demo Street New York, NY 535022, United States
-                             classicmotor@gmail.com
+                             RED-ONION@gmail.com
                                 +1 234 567 8910
                                 2021 © classicmoter. Design by Amit Hasan.</p>
                               <p>
                                 <i class="fas fa-envelope-open-text contact-icon"></i>
-                                    classicmotor@gmail.com
+                                red-onion@gmail.com
                                     </p>
                                 <p>
                                 <i class="fas fa-phone contact-icon"></i>
