@@ -16,8 +16,8 @@ const Meal = ({meal,handleAddToCart}) => {
         <div>
             
                 <div class="col    ">
-                    <div style={{width:'75%', margin:'auto'}} class="card shadow-sm p-1 mb-2 bg-body rounded">
-                        <img style={{width:'75%',margin:'auto',padding:'10px', marginTop:'10px'}} src={image} class="card-img-top" alt="..."/>
+                    <div style={{width:'70%', margin:'auto'}} class="card">
+                        <img style={{width:'85%',margin:'auto',padding:'10px', marginTop:'10px'}} src={image} class="card-img-top" alt="..."/>
                             <div class="card-body">
                             <h5 class="card-title">{name}</h5>
                             <h5 class="card-title">Price: ${price}</h5>

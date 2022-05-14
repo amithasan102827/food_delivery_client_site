@@ -77,7 +77,7 @@ const Home = () => {
 
         <div className='mt-5 '>
             <div className='row'>
-                <div className='col-lg-6  '>
+                <div className='col-lg-6 mt-2  '>
                     <div className='header-text mx-2'>
 
                         <div className=''>
@@ -85,7 +85,7 @@ const Home = () => {
                                 Get Restant Food by <br />
                                 Ordering Online
                             </h1>
-                            <p style={{ fontSize: '0.8em' }} className=' '>A restaurant sometimes known as a diner is a place where cooked food is sold to the public, and where people sit down to eat it. It is also a place where people go to enjoy the time and to eat a meal.</p>
+                            <p style={{ fontSize: '0.9em' }} className=' '>A restaurant sometimes known as a diner is a place where cooked food is sold to the public, and where people sit down to eat it. It is also a place where people go to enjoy the time and to eat a meal.</p>
                         </div>
 
                         <div className='mt-4'>
@@ -105,7 +105,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className='col-lg-6  mt-4  mb-4 '>
+                <div className='col-lg-6  mt-4  mb-4 p-3'>
                     <Carousel>
                         <Carousel.Item interval={1000}>
 
@@ -159,7 +159,7 @@ const Home = () => {
 
             <div className=' '>
                 {/* <h1>All food {meals.length}</h1> */}
-                <div class="row row-cols-1 row-cols-md-3 g-4 ">
+                <div class="row row-cols-1 row-cols-md-4 g-4 ">
                     {
                         displayMeals.slice(0,21).map(meal => <Meal
                             key={meal.id}
