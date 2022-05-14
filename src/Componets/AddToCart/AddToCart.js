@@ -16,7 +16,7 @@ const AddToCart = ({ cart, setCart, setTotal }) => {
 
     const [date, setDate] = useState();
     const [data, setData] = useState([]);
-    const { control, register,reset, handleSubmit, formState: { errors } } = useForm();
+    const { control, register, reset, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         setData(data);
 
@@ -32,7 +32,7 @@ const AddToCart = ({ cart, setCart, setTotal }) => {
     const total = cart.reduce((sum, food) => sum + parseFloat(food.price), 0);
     console.log(cart);
 
-setTotal(total);
+    setTotal(total);
 
     const handleRemove = (id) => {
         const arr = cart.filter((item) => item.id !== id);
@@ -44,12 +44,12 @@ setTotal(total);
 
 
 
-    const handleOrder = (cart, email, data,total) => {
+    const handleOrder = (cart, email, data, total) => {
         const item = [{
             email: email,
             cart: cart,
             data: data,
-            total:total
+            total: total
         }]
         if (cart.length !== 0) {
             fetch("https://whispering-citadel-01362.herokuapp.com/orders", {
@@ -58,14 +58,17 @@ setTotal(total);
 
                 body: JSON.stringify(item),
 
+
             })
 
 
                 .then(res => res.json())
                 .then(result => {
-                    console.log(cart);
+
+                    // console.log(cart);
                     if (result.insertedIds) {
-                        alert(' Order place successfully');
+
+                        // alert(' Order place successfully');
 
                     }
                 })
@@ -165,21 +168,21 @@ setTotal(total);
 
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {/* register your input into the hook by invoking the "register" function */}
-                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }}  placeholder="Name" {...register("name")} />
+                        <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} placeholder="Name" {...register("name")} />
                         <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} placeholder="Mobile" {...register("mobile")} />
                         <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} placeholder="Address" {...register("address")} /> <br />
 
                         <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} type="date" {...register("date")} /> <br />
                         <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} type="time" {...register("time")} /> <br />
 
-                     
-                        
 
-                        <input style={{marginLeft:"157px",backgroundColor:"green",border:'none',color:'white'}} type="submit" />
+
+
+                        <input style={{ marginLeft: "157px", backgroundColor: "green", border: 'none', color: 'white' }} type="submit" />
                     </form>
 
                     <Link to="payment">
-                    <button style={{ marginTop: "10px", width: "80%", marginRight: "60px" }} onClick={() => handleOrder(cart, user.email, data,total)} type="button" class="btn btn-primary btn-sm">place order</button>
+                        <button style={{ marginTop: "10px", width: "80%", marginRight: "60px" }} onClick={() => handleOrder(cart, user.email, data, total)} type="button" class="btn btn-primary btn-sm">place order</button>
                     </Link>
                 </div>
 

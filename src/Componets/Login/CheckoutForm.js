@@ -7,7 +7,7 @@ import './CheckoutForm.css';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { Button } from 'bootstrap';
 
-const CheckoutForm = ({total} ) => {
+const CheckoutForm = ({total,cart} ) => {
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -58,7 +58,9 @@ const CheckoutForm = ({total} ) => {
 
 
 
-
+const EmptyCart=()=>{
+    cart.length=0;
+}
 
 
 
@@ -84,7 +86,7 @@ const CheckoutForm = ({total} ) => {
             },
           }}
       />
-      <button className='btnnn' style={{width:"100px", backgroundColor:"DarkCyan",border:"none",height:"30px", }} type="submit" disabled={!stripe}>
+      <button  className='btnnn' style={{width:"100px", backgroundColor:"DarkCyan",border:"none",height:"30px", fontWeight:'bold',color:'white'}} type="submit" disabled={!stripe}>
         Pay${total}
       </button>
       

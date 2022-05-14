@@ -9,7 +9,7 @@ const ManageAllProduct = () => {
     const [allProducts,setAllProducts]=useState([]);
 
     useEffect(()=>{
-        fetch("http://localhost:5000/meals")
+        fetch("https://whispering-citadel-01362.herokuapp.com/meals")
         .then(res=>res.json())
         .then(data=>setAllProducts(data))
     },[])
@@ -17,7 +17,7 @@ const ManageAllProduct = () => {
 
     // DELETE PRODUCT 
     const handelDelete=(id)=>{
-        const url=`http://localhost:5000/meals/${id}`;
+        const url=`https://whispering-citadel-01362.herokuapp.com/meals/${id}`;
         fetch(url,{
             method:"DELETE"
         })

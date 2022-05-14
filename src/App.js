@@ -142,7 +142,7 @@ function App() {
 
               {/* <Route path="/payment/:appointmentId" element={<Payment></Payment>}>
               </Route> */}
-              <Route path="/AddToCart/payment" element={<Payment total={total}></Payment>}>
+              <Route path="/AddToCart/payment" element={<Payment total={total} cart={cart}></Payment>}>
               </Route>
 
             </Routes>
