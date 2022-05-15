@@ -87,7 +87,7 @@ const ManageAllOrders = () => {
                             <th>Date</th>
 
                             <th>Address</th>
-                            <th>Status</th>
+                            {/* <th>Status</th> */}
 
                             {/* <th>Action</th> */}
                             <th>Action</th>
@@ -107,17 +107,23 @@ const ManageAllOrders = () => {
                                 <td>{allOrder?.data.mobile}</td>
                                 <td>{allOrder?.data.date}</td>
                                 <td>{allOrder?.data.address}</td>
-                                <td align="right">{allOrder.order ?
+                                {/* <td align="right">{allOrder.order ?
                                     'Delivered' : <p>Not Deliver</p>
 
-                                }</td>
+                                }</td> */}
 
                                 {/* <td><Button onClick={() => handelDelete(allOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Delete</Button></td> */}
 
+                               <td>
 
+                                   {
+                                       allOrder.order ? "Already Delivered"
+                                       :<Button   onClick={() => handelUpdate(allOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Deliver</Button>
+                                   }
+                               </td>
 
                                 
-                                <td><Button disabled={allOrder.order}  onClick={() => handelUpdate(allOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Deliver</Button></td>
+                                {/* <td><Button   onClick={() => handelUpdate(allOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Deliver</Button></td> */}
 
                               
 
