@@ -15,17 +15,18 @@ const MyOrders = () => {
 
     const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
-        fetch(`https://whispering-citadel-01362.herokuapp.com/orders/${user.email}`)
+        fetch(`https://food-delivery-app-c3hd.onrender.com/orders/${user.email}`)
             .then(res => res.json())
-        .then(data => {setMyOrders(data)
-        console.log(data);
-        })
-          
+            .then(data => {
+                setMyOrders(data)
+                console.log(data);
+            })
+
     }, [user.email])
 
     // DELETE ORDERS
     const handelDelete = (id) => {
-        const url = `https://whispering-citadel-01362.herokuapp.com/orders/${id}`;
+        const url = `https://food-delivery-app-c3hd.onrender.com/orders/${id}`;
         fetch(url, {
             method: "DELETE"
         })
@@ -40,11 +41,11 @@ const MyOrders = () => {
             })
     }
 
-    
+
     return (
         <Container>
 
-           <h2>My Orders</h2>
+            <h2>My Orders</h2>
 
             <div>
                 <Table responsive="lg" className="table table-primary table-striped">
@@ -58,9 +59,9 @@ const MyOrders = () => {
 
                             <th>Address</th>
                             <th>Status</th>
-                           
+
                             {/* <th>Action</th> */}
-                            
+
 
                         </tr>
 
@@ -71,13 +72,13 @@ const MyOrders = () => {
                             <tr>
 
                                 <td>{myOrder?.email}</td>
-                                <td>{myOrder?.cart.map(c=><li>{c.name}</li>)}</td>
+                                <td>{myOrder?.cart.map(c => <li>{c.name}</li>)}</td>
                                 <td>{myOrder.total}</td>
                                 <td>{myOrder.data.mobile}</td>
                                 <td>{myOrder.data.address}</td>
                                 <td align="right">{myOrder.order ?
-                                    'Delivered' :<p>Pending</p>
-                                    
+                                    'Delivered' : <p>Pending</p>
+
                                 }</td>
 
                                 {/* <td>{myOrder?.data.Address
@@ -85,7 +86,7 @@ const MyOrders = () => {
                                 <td>${myOrder?.carprice}</td>
                                 <td>{myOrder?.phone}</td>
                                 <td>{myOrder?.address}</td> */}
-                                
+
                                 {/* <td><Button onClick={() => handelDelete(myOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Delete</Button></td> */}
 
                                 {/* <td>  <Link to={`/payment/${myOrder._id}`}><button>Pay</button></Link></td> */}

@@ -11,7 +11,7 @@ import './Header.css';
 
 
 
-const Header = ({cart}) => {
+const Header = ({ cart }) => {
 
   const { LogOut, user } = useAuth();
 
@@ -31,11 +31,11 @@ const Header = ({cart}) => {
               <Nav.Link ><Link to='/reviews' style={{ textDecoration: 'none' }}>Reviews</Link></Nav.Link>
 
               {/* <Nav.Link ><Link to='/makeAdmin' style={{ textDecoration: 'none' }}>MakeAdmin</Link></Nav.Link> */}
-             
-             {
-               user.email && 
-               <Nav.Link ><Link to='/DashBoard' style={{ textDecoration: 'none' }}>DashBoard</Link></Nav.Link>
-             }
+
+              {
+                user.email &&
+                <Nav.Link ><Link to='/DashBoard' style={{ textDecoration: 'none' }}>DashBoard</Link></Nav.Link>
+              }
 
 
 
@@ -53,7 +53,7 @@ const Header = ({cart}) => {
             </Nav>
             <Nav>
               <Nav.Link > {
-                user.email && <span style={{fontSize:"12px"}} className="text-light me-4">welcome {user.email}</span>
+                user.email && <span style={{ fontSize: "12px" }} className="text-light me-4">welcome {user.email}</span>
               }
 
               </Nav.Link>
@@ -64,13 +64,13 @@ const Header = ({cart}) => {
                 }
 
               </Nav.Link>
-              
-           
-                <Link to='/AddToCart'>
-                  
-                 <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i><span>{cart.length}</span>
-                </Link>
-              
+
+
+              <Link to='/AddToCart'>
+
+                <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i><span>{cart.length}</span>
+              </Link>
+
 
             </Nav>
           </Navbar.Collapse>

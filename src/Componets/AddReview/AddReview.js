@@ -5,13 +5,13 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../Hooks/useAuth';
 
 const AddReview = () => {
-    const {user}=useAuth();
+    const { user } = useAuth();
 
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
 
         console.log(data);
-        fetch("https://whispering-citadel-01362.herokuapp.com/reviews", {
+        fetch("https://food-delivery-app-c3hd.onrender.com/reviews", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -33,12 +33,12 @@ const AddReview = () => {
                     <Box style={{ height: '95vh', width: "100%", }}>
                         <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <input defaultValue={user.email}  name="image"  {...register("email")} style={{ width: '50%', height: '6vh', margin: '10px' }} /> <br />
+                            <input defaultValue={user.email} name="image"  {...register("email")} style={{ width: '50%', height: '6vh', margin: '10px' }} /> <br />
 
                             <input placeholder="Your Name" name="name"   {...register("name")} style={{ width: '50%', height: '6vh', margin: '10px' }} /> <br />
-                             
 
-                            <select placeholder="Rating" {...register("rating")}  style={{ width: '50%', height: '6vh', margin: '10px' }}  >
+
+                            <select placeholder="Rating" {...register("rating")} style={{ width: '50%', height: '6vh', margin: '10px' }}  >
                                 <option value="rating">rating</option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
@@ -47,12 +47,12 @@ const AddReview = () => {
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select> <br />
- 
+
 
                             <textarea type='text' placeholder="Message" name="description" {...register("description")} style={{ width: '50%', height: '12vh', margin: '10px' }} />
                             <br />
 
-                            
+
 
                             {/* <input type='text' placeholder="Car Price" name="carprice"  {...register("carprice")} style={{width:'50%',height:'6vh', margin:'10px'}} /> <br /> */}
 

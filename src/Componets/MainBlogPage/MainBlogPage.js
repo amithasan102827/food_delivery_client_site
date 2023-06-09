@@ -8,7 +8,7 @@ const MainBlogPage = () => {
   const [blog,setBlog]=useState([]);
 
   useEffect(() => {
-      fetch('https://whispering-citadel-01362.herokuapp.com/blogs')
+      fetch('https://food-delivery-app-c3hd.onrender.com/blogs')
           .then(res => res.json())
       .then(data => {setBlog(data)
       console.log(data);

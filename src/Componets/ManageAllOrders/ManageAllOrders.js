@@ -18,14 +18,14 @@ const ManageAllOrders = () => {
 
     const [allOrders, setAllMyOrders] = useState([]);
     useEffect(() => {
-        fetch('https://whispering-citadel-01362.herokuapp.com/orders')
+        fetch('https://food-delivery-app-c3hd.onrender.com/orders')
             .then(res => res.json())
             .then(data => setAllMyOrders(data))
     }, [])
 
     // DELETE ORDERS
     const handelDelete = (id) => {
-        const url = `https://whispering-citadel-01362.herokuapp.com/orders/${id}`;
+        const url = `https://food-delivery-app-c3hd.onrender.com/orders/${id}`;
         fetch(url, {
             method: "DELETE"
         })
@@ -47,7 +47,7 @@ const ManageAllOrders = () => {
         const order = {
             order: 'Delivered'
         }
-        const url = `https://whispering-citadel-01362.herokuapp.com/orders/${id}`;
+        const url = `https://food-delivery-app-c3hd.onrender.com/orders/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -56,18 +56,18 @@ const ManageAllOrders = () => {
             body: JSON.stringify(order)
         })
             .then(res => res.json())
-            .then(data =>{
-              
-                 if(data.matchedCount=1){
-                     alert("Delivered Successfully");
-                 }
-                 
+            .then(data => {
+
+                if (data.matchedCount = 1) {
+                    alert("Delivered Successfully");
+                }
+
 
                 console.log(data)
             }
-                
-           
-            
+
+
+
             );
     }
 
@@ -114,18 +114,18 @@ const ManageAllOrders = () => {
 
                                 {/* <td><Button onClick={() => handelDelete(allOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Delete</Button></td> */}
 
-                               <td>
+                                <td>
 
-                                   {
-                                       allOrder.order ? "Already Delivered"
-                                       :<Button   onClick={() => handelUpdate(allOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Deliver</Button>
-                                   }
-                               </td>
+                                    {
+                                        allOrder.order ? "Already Delivered"
+                                            : <Button onClick={() => handelUpdate(allOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Deliver</Button>
+                                    }
+                                </td>
 
-                                
+
                                 {/* <td><Button   onClick={() => handelUpdate(allOrder._id)} variant="contained" style={{ backgroundColor: '#F93E57', color: '#FFFFFF' }}>Deliver</Button></td> */}
 
-                              
+
 
                             </tr>
 

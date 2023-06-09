@@ -25,7 +25,7 @@ const AddNewProduct = () => {
         formData.append('rating', rating);
         formData.append('image', image);
 
-        fetch('https://whispering-citadel-01362.herokuapp.com/meals', {
+        fetch('https://food-delivery-app-c3hd.onrender.com/meals', {
             method: 'POST',
             body: formData
         })
@@ -86,7 +86,7 @@ const AddNewProduct = () => {
                     onChange={e => setRating(e.target.value)}
                     variant="standard" />
                 <br />
-              
+
 
                 <Input
                     sx={{ marginTop: '20px' }}

@@ -52,7 +52,7 @@ const AddToCart = ({ cart, setCart, setTotal }) => {
             total: total
         }]
         if (cart.length !== 0) {
-            fetch("https://whispering-citadel-01362.herokuapp.com/orders", {
+            fetch("https://food-delivery-app-c3hd.onrender.com/orders", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
 
@@ -158,33 +158,33 @@ const AddToCart = ({ cart, setCart, setTotal }) => {
 
                             {/* <button onClick={() => handleOrder(cart, user.email)} type="button" class="btn btn-primary btn-sm">place order</button> */}
                         </div>
-                    
 
 
 
 
-                    {/* <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} type="text" placeholder="Name" {...register("name", { required: true, maxLength: 80 })} /> */}
+
+                        {/* <input style={{ marginRight: "65px", width: "81%", marginBottom: "10px", outline: "none" }} type="text" placeholder="Name" {...register("name", { required: true, maxLength: 80 })} /> */}
 
 
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        {/* register your input into the hook by invoking the "register" function */}
-                        <input style={{ marginRight: "100px", width: "100%", marginBottom: "15px", outline: "none",marginTop:'10px' }} placeholder="Name" {...register("name")} />
-                        <input style={{ marginRight: "100px", width: "100%", marginBottom: "15px", outline: "none" }} placeholder="Mobile" {...register("mobile")} />
-                        <input style={{ marginRight: "100px", width: "100%", marginBottom: "15px", outline: "none" }} placeholder="Address" {...register("address")} /> <br />
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            {/* register your input into the hook by invoking the "register" function */}
+                            <input style={{ marginRight: "100px", width: "100%", marginBottom: "15px", outline: "none", marginTop: '10px' }} placeholder="Name" {...register("name")} />
+                            <input style={{ marginRight: "100px", width: "100%", marginBottom: "15px", outline: "none" }} placeholder="Mobile" {...register("mobile")} />
+                            <input style={{ marginRight: "100px", width: "100%", marginBottom: "15px", outline: "none" }} placeholder="Address" {...register("address")} /> <br />
 
-                        <input style={{ marginRight: "100px", width: "100%", marginBottom: "15px", outline: "none" }} type="date" {...register("date")} /> <br />
-                        <input style={{ marginRight: "100px", width: "100%", marginBottom: "10px", outline: "none" }} type="time" {...register("time")} /> <br />
-
-
+                            <input style={{ marginRight: "100px", width: "100%", marginBottom: "15px", outline: "none" }} type="date" {...register("date")} /> <br />
+                            <input style={{ marginRight: "100px", width: "100%", marginBottom: "10px", outline: "none" }} type="time" {...register("time")} /> <br />
 
 
-                        <input style={{ marginLeft: "210px", backgroundColor: "green", border: 'none', color: 'white' }} type="submit" />
-                    </form>
-                 
 
-                    <Link to="payment">
-                        <button style={{ marginTop: "10px", width: "100%", marginRight: "90px" }} onClick={() => handleOrder(cart, user.email, data, total)} type="button" class="btn btn-primary btn-sm">place order</button>
-                    </Link>
+
+                            <input style={{ marginLeft: "210px", backgroundColor: "green", border: 'none', color: 'white' }} type="submit" />
+                        </form>
+
+
+                        <Link to="payment">
+                            <button style={{ marginTop: "10px", width: "100%", marginRight: "90px" }} onClick={() => handleOrder(cart, user.email, data, total)} type="button" class="btn btn-primary btn-sm">place order</button>
+                        </Link>
                     </div>
                 </div>
 

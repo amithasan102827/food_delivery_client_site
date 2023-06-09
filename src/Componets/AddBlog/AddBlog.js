@@ -20,7 +20,7 @@ const AddBlog = () => {
         formData.append('description', description);
         formData.append('image', image);
 
-        fetch('https://whispering-citadel-01362.herokuapp.com/blogs', {
+        fetch('https://food-delivery-app-c3hd.onrender.com/blogs', {
             method: 'POST',
             body: formData
         })
