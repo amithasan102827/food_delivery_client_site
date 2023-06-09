@@ -106,7 +106,7 @@ const useFirebase = () => {
   // SAVE USER
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch('https://whispering-citadel-01362.herokuapp.com/users', {
+    fetch('https://food-delivery-app-c3hd.onrender.com/users', {
       method: method,
       headers: {
         'content-type': "application/json"
@@ -120,7 +120,7 @@ const useFirebase = () => {
 
   // admin data load
   useEffect(() => {
-    fetch(`https://whispering-citadel-01362.herokuapp.com/users/${user.email}`)
+    fetch(`https://food-delivery-app-c3hd.onrender.com/users/${user.email}`)
       .then(res => res.json())
       .then(data => setAdmin(data.admin));
   }, [user.email])
