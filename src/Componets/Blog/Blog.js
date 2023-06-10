@@ -63,16 +63,16 @@ const Blog = () => {
 
 
     return (
-        <div className=' mt-5 '>
-            <h1>Our Regular Blogs</h1>
+        <div className='mt-5 container'>
+            <h1 className='mb-5'>Our Regular Blogs</h1>
 
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row row-cols-1 row-cols-md-3 g-5">
                 {
                     blog.slice(0, 3).map(data =>
 
                         <div class="col">
-                            <div class="card h-100 w-75 mx-auto">
-                                <img src={`data:image/png;base64,${data?.image}`} class="card-img-top" alt="..." />
+                            <div class="card h-100 mx-auto shadow">
+                                <img src={`data:image/png;base64,${data?.image}`} class="card-img-top img-fluid " alt="..." />
                                 <div class="card-body">
                                     <h5 class="card-title">{data.name}</h5>
                                     <p class="card-text">{data.description.slice(0, 100)}</p>
@@ -87,8 +87,8 @@ const Blog = () => {
                     )
                 }
             </div>
-            <Link style={{ textDecoration: 'none' }} to='/MainBlogPage'>
-                <Button variant="text">Read More Blogs</Button>
+            <Link style={{ textDecoration: 'none', }} to='/MainBlogPage'>
+                <Button className='mt-5' variant="text">Read More Blogs</Button>
             </Link>
         </div>
 

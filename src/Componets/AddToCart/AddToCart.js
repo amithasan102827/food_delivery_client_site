@@ -111,20 +111,20 @@ const AddToCart = ({ cart, setCart, setTotal }) => {
     return (
 
 
-        <div className="" style={{ marginTop: '90px' }} >
+        <div className="container" style={{ marginTop: '90px' }} >
             {/* <h3 style={{ fontWeight: "bold" }}>Total Item:{cart.length}</h3> */}
             <h4>Total Cost:${total}</h4>
-            <div className="row">
-                <div className="col-md-8 mt-5">
+            <div className="row d-flex justify-content-center">
+                <div className="col-md-7 mt-5 ">
                     {
                         cart.map(item => <div>
 
-                            <div style={{ width: '80%' }} class="card mb-3 shadow-sm   bg-body rounded">
-                                <div class="row g-2">
-                                    <div class="col-md-3">
-                                        <img style={{ width: '100%' }} src={item.image} class="img-fluid rounded-start" alt="..." />
+                            <div style={{ width: '100%' }} class="card mb-5 shadow bg-body rounded">
+                                <div class="row g-5 ">
+                                    <div class="col-md-5 ">
+                                        <img style={{ width: '100%', height:'150px', objectFit:'cover' }} src={item.image} class="img-fluid rounded-start" alt="..." />
                                     </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-7">
                                         <div class="card-body">
                                             <h5 class="card-title">{item.name}</h5>
                                             <h6>Price:${item.price}</h6>
@@ -139,14 +139,14 @@ const AddToCart = ({ cart, setCart, setTotal }) => {
                             </div>
                         </div>
 
-
-
                         )
                     }
                 </div>
 
-                <div className="col-md-4 mt-5"  >
-                    <div class="card shadow-sm p-1 mb-2 bg-body rounded" style={{ width: '18rem' }}>
+
+                    {/* FORM-SECTION */}
+                <div className="col-md-5 mt-5 d-flex justify-content-md-end">
+                    <div class="card shadow p-1 mb-2 bg-body rounded" style={{ width: '25rem' }}>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Add to cart:{cart.length}</li>
                             <li class="list-group-item">Total Cost:${total}</li>

@@ -24,17 +24,17 @@ const Header = ({ cart }) => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link ><Link to='/home' style={{ textDecoration: 'none' }}>Home</Link></Nav.Link>
-              <Nav.Link ><Link to='/MainBlogPage' style={{ textDecoration: 'none' }}>Blog</Link></Nav.Link>
-              <Nav.Link ><Link to='/Login' style={{ textDecoration: 'none' }}>SingUp</Link></Nav.Link>
-              <Nav.Link ><Link to='/SingIn' style={{ textDecoration: 'none' }}>SingIn</Link></Nav.Link>
-              <Nav.Link ><Link to='/reviews' style={{ textDecoration: 'none' }}>Reviews</Link></Nav.Link>
+              <Nav.Link ><Link  to='/home' className='text-white text-decoration-none'>Home</Link></Nav.Link>
+              <Nav.Link ><Link to='/MainBlogPage' className='text-white text-decoration-none'>Blog</Link></Nav.Link>
+              <Nav.Link ><Link to='/Login' className='text-white text-decoration-none' >SingUp</Link></Nav.Link>
+              <Nav.Link ><Link to='/SingIn' className='text-white text-decoration-none' >SingIn</Link></Nav.Link>
+              <Nav.Link ><Link to='/reviews' className='text-white text-decoration-none'>Reviews</Link></Nav.Link>
 
               {/* <Nav.Link ><Link to='/makeAdmin' style={{ textDecoration: 'none' }}>MakeAdmin</Link></Nav.Link> */}
 
               {
                 user.email &&
-                <Nav.Link ><Link to='/DashBoard' style={{ textDecoration: 'none' }}>DashBoard</Link></Nav.Link>
+                <Nav.Link ><Link to='/DashBoard'  className='text-white text-decoration-none'>DashBoard</Link></Nav.Link>
               }
 
 
@@ -53,22 +53,21 @@ const Header = ({ cart }) => {
             </Nav>
             <Nav>
               <Nav.Link > {
-                user.email && <span style={{ fontSize: "12px" }} className="text-light me-4">welcome {user.email}</span>
+                user.email && <span style={{ fontSize: "12px" }} className="text-light me-2">welcome {user.email}</span>
               }
 
               </Nav.Link>
 
               <Nav.Link >
                 {
-                  user.email && <button className="btn btn-primary btn-sm" onClick={LogOut} style={{ backgroundColor: 'red', border: 'none', color: 'white', padding: '2px', borderRadius: '3px' }}>LogOut</button>
+                  user.email && <button className="btn btn-primary btn-sm" onClick={LogOut} style={{ backgroundColor: 'red', border: 'none', color: 'white', padding: '3px 8px', borderRadius: '3px' }}>LogOut</button>
                 }
 
               </Nav.Link>
 
 
-              <Link to='/AddToCart'>
-
-                <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i><span>{cart.length}</span>
+              <Link className='text-decoration-none' to='/AddToCart'>
+                <i class="fa fa-shopping-cart fa-lg ms-3 text-light" aria-hidden="true" style={{ marginTop: '12px' }}></i><span className='text-light fs-6 ms-1'>{cart.length}</span>
               </Link>
 
 

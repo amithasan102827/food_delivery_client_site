@@ -76,7 +76,7 @@ const Home = () => {
         <>
 
 
-            <div className='mt-5 '>
+            <div className='mt-5 overflow-hidden'>
                 <div className='row'>
                     <div className='col-lg-6 mt-2  '>
                         <div className='header-text mx-2'>
@@ -158,11 +158,11 @@ const Home = () => {
 
                 {/* Meal section */}
 
-                <div className=' '>
+                <div className='container my-5'>
                     {/* <h1>All food {meals.length}</h1> */}
-                    <div class="row row-cols-1 row-cols-md-4 g-4 ">
+                    <div class="row row-cols-1 row-cols-md-4 g-5 ">
                         {
-                            displayMeals.slice(0, 21).map(meal => <Meal
+                            displayMeals.slice(0, 36).map(meal => <Meal
                                 key={meal.id}
                                 meal={meal}
                                 // handleAddToCartButton={handleAddToCartButton}
@@ -175,12 +175,7 @@ const Home = () => {
                         <h4>How to use Pagination Component in ReactJS?</h4>
                         <Pagination count={10} />
                     </div> */}
-
-
-
                     </div>
-
-
                 </div>
                 <Blog></Blog>
 

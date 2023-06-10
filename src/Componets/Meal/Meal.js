@@ -9,28 +9,19 @@ const Meal = ({ meal, handleAddToCart }) => {
     // const [handleAddToCart] = useContext(userContext);
 
 
-
-
-
     return (
         <div>
-
-            <div class="col    ">
-                <div style={{ width: '70%', margin: 'auto' }} class="card">
-                    <img style={{ width: '85%', margin: 'auto', padding: '10px', marginTop: '10px' }} src={image} class="card-img-top" alt="..." />
+            <div class="col">
+                <div style={{ width: '100%', margin: 'auto' }} class="card shadow h-100">
+                    <img style={{ width: '100%', margin: 'auto', height:'200px', objectFit:'cover' }} src={image} className="card-img-top img-fluid" alt="..." />
                     <div class="card-body">
-                        <h5 class="card-title">{name}</h5>
+                        <h5 class="card-title text-truncate">{name}</h5>
                         <h5 class="card-title">Price: ${price}</h5>
                         {/* <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> */}
                         {/* <button  onClick={()=>handleAddToCart(meal)} >Add To Cart</button> */}
-                        <button onClick={() => handleAddToCart(meal)} type="button" class="btn btn-outline-warning btn-sm">Add To Cart</button>
+                        <button onClick={() => handleAddToCart(meal)} type="button" class="btn btn-outline-danger btn-sm fw-bold">Add To Cart</button>
                     </div>
                 </div>
-
-
-
-
-
             </div>
         </div>
     );
